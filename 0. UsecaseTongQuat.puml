@@ -1,0 +1,65 @@
+@startuml UsecaseTongQuat
+left to right direction
+
+actor "Staff" as nhanVien
+actor "Manager" as quanLy
+actor "Candidate" as nguoiUngTuyen
+actor "Company" as congTy
+
+rectangle "Employment assistance system" {
+    usecase "Đăng nhập" as dangNhap
+    usecase "Đăng ký" as dangKy
+    usecase "Quản lý bài đăng tuyển dụng" as quanLyBaiDang <<CRUD>>
+    usecase "Theo dõi" as theoDoi
+    usecase "Báo cáo" as baoCao
+    usecase "Đánh giá công ty tuyển dụng" as danhGiaCongTyTuyenDung
+    usecase "Quản lý tài khoản cá nhân" as quanLyTaiKhoanCaNhan
+    usecase "Quản lý tài khoản công ty" as quanLyTaiKhoanCongTy
+    usecase "Ứng tuyển" as ungTuyen
+    usecase "Quản lý ứng tuyển" as quanLyUngTuyen
+    usecase "Nhắn tin" as nhanTin
+    usecase "Tìm kiếm" as timKiem
+    usecase "Truy cập" as truyCap
+    usecase "Quản lý phân tích/thống kê" as quanLyPhanTich
+    usecase "Kiểm duyệt" as kiemDuyet
+    usecase "Quản lý truy cập hệ thống" as quanLyTruyCap
+    usecase "Quản lý tài khoản admin" as quanLyTaiKhoanAdmin
+    usecase "Đánh giá người ứng tuyển" as danhGiaNguoiUngTuyen
+    usecase "Quản lý tài khoản trong hệ thống" as quanLyTaiKhoan <<CRUD>>
+    usecase "Gợi ý việc làm" as goiYViecLam
+}
+
+dangNhap ---- nhanVien
+nhanTin ---- nhanVien
+timKiem ---- nhanVien
+truyCap ---- nhanVien
+quanLyPhanTich ---- nhanVien
+kiemDuyet ---- nhanVien
+quanLyTaiKhoanAdmin ---- nhanVien
+
+quanLy -- dangNhap
+quanLyTruyCap -- quanLy
+quanLyTaiKhoan -- quanLy
+
+nguoiUngTuyen ----- dangNhap
+nguoiUngTuyen ----- dangKy
+nguoiUngTuyen ----- theoDoi
+nguoiUngTuyen ----- baoCao
+nguoiUngTuyen ----- danhGiaCongTyTuyenDung
+nguoiUngTuyen ----- quanLyTaiKhoanCaNhan
+nguoiUngTuyen ----- ungTuyen
+nguoiUngTuyen ----- nhanTin
+nguoiUngTuyen ----- truyCap
+
+congTy --- dangNhap
+congTy ------ dangKy
+congTy ------ quanLyBaiDang
+congTy ------ quanLyTaiKhoanCongTy
+congTy ------ quanLyUngTuyen
+congTy ------ nhanTin
+congTy ------ timKiem
+congTy ------ truyCap
+congTy ------ danhGiaNguoiUngTuyen
+
+nguoiUngTuyen -- goiYViecLam
+@enduml
